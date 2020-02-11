@@ -1,8 +1,9 @@
 # 2020_presidential_primary_polling
-Link to data: https://projects.fivethirtyeight.com/polls-page/president_primary_polls.csv
+slides:
+https://docs.google.com/presentation/d/19TnaR4V9ILl_mIBJxsu2V1m88dCHyFUqWiB1DGhUde8/edit?usp=sharing
 
 ## data
-storing data
+data and links to data 
 ## doc
 documentation
 ## lib
