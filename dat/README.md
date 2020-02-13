@@ -1,7 +1,8 @@
 # 2020_presidential_primary_polling
 Link to data: https://projects.fivethirtyeight.com/polls-page/president_primary_polls.csv
-https://github.com/fivethirtyeight/data/tree/master/polls
 
+https://github.com/fivethirtyeight/data/tree/master/polls
+scroll down to polling averages, click on Presidential Primary Polling Averages (2020) for most recent data
 https://projects.fivethirtyeight.com/polls/president-primary-d/
 
 
