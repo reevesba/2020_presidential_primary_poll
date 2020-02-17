@@ -1,14 +1,3 @@
-# NOTE: 
-# The points in the CSV are based on various questions from various polls. 
-# Using the website for comparison, we might have to average out some 
-# data to get the 'result' we're looking for.
-
-# CONCERN: 
-# Did the website scale the points for us, or do we have to do it?
-
-# Running Code:
-# For RStudio, you have to select all the code and press run.
-
 library(ggplot2)
 library(scales)
 
