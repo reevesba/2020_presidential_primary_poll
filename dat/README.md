@@ -13,5 +13,5 @@ https://www.fec.gov/data/receipts/?data_type=processed
 https://www.fec.gov/data/raising-bythenumbers/
 
 Deletegates:
-http://apps.npr.org/dailygraphics/graphics/delegate-tracker-20200117/cand-table.html
-
+* http://apps.npr.org/dailygraphics/graphics/delegate-tracker-20200117/cand-table.html
+* https://www.realclearpolitics.com/epolls/2020/president/democratic_delegate_count.html
