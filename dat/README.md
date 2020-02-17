@@ -12,3 +12,6 @@ Raising:
 https://www.fec.gov/data/receipts/?data_type=processed
 https://www.fec.gov/data/raising-bythenumbers/
 
+Deletegates:
+http://apps.npr.org/dailygraphics/graphics/delegate-tracker-20200117/cand-table.html
+
