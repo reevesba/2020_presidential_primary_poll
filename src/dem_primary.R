@@ -25,7 +25,7 @@ ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) +
   scale_x_date(labels=date_format("%B %y"), date_breaks="1 month") +
   theme(axis.text.x=element_text(angle=45, hjust=1))
 
-ggsave("../out/dem_polls.pdf", units="in", width=10, height=10, dpi=300)
+ggsave("../out/dem_polls.pdf", units="in", width=10, height=5, dpi=300)
 
 #--- delegates ---#
 del_df<-read.csv("../dat/delegates.csv", header=TRUE)
@@ -40,5 +40,5 @@ ggplot(del_df, aes(x=candidate, y=delegates)) +
   geom_text(aes(label=delegates), vjust=-0.5, color="red") +
   labs(title="Total Delegates Awarded", y="Delegates", x="Candidate", caption="Candidates need 1,991 delegates to secure their nomination on the first ballot at the Democratic National Convention")
 
-ggsave("../out/dem_dels.pdf", units="in", width=10, height=10, dpi=300)
+ggsave("../out/dem_dels.pdf", units="in", width=10, height=5, dpi=300)
 
