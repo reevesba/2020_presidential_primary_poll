@@ -19,7 +19,7 @@ colnames(dem_df)[which(names(dem_df)=="candidate_name")]<-"Candidate"
 ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) + 
   geom_line(size=2) + 
   geom_vline(data=cau_df, aes(xintercept=date), color="black", linetype="longdash") +
-  annotate("label", label=d$events, x=d$date, y=48, fill="yellow") +
+  annotate("label", label=cau_df$events, x=cau_df$date, y=48, fill="yellow") +
   labs(title="Democratic Primary Polling", y="Points", x="Date", caption="Data: www.fivethirtyeight.com") +
   scale_color_manual(values=c("#4C4CFF", "#e6194B", "#ffa500", "#00ff80", "#000000", "#ff00bf", "#008000", "#00ffff")) + 
   scale_x_date(labels=date_format("%B %y"), date_breaks="1 month") +
@@ -30,13 +30,14 @@ ggsave("../out/dem_polls.pdf", units="in", width=10, height=10, dpi=300)
 #--- delegates ---#
 del_df<-read.csv("../dat/delegates.csv", header=TRUE)
 
-candidate<-c("Biden", "Buttigieg", "Klobuchar", "Sanders", "Warren")
-delegates<-c(sum(del_df$Biden), sum(del_df$Buttigieg), sum(del_df$Klobuchar), sum(del_df$Sanders), sum(del_df$Warren))
+candidate<-colnames(del_df)[5:12]
+delegates<-c(sum(del_df$Klobuchar), sum(del_df$Sanders), sum(del_df$Warren), sum(del_df$Biden), sum(del_df$Bloomberg), sum(del_df$Buttigieg), sum(del_df$Steyer), sum(del_df$Gabbard))
+delegates[is.na(delegates)]<-0
 del_df<-data.frame(candidate, delegates)
 
 ggplot(del_df, aes(x=candidate, y=delegates)) + 
   geom_bar(stat="identity", color="red", fill="orange") +
-  geom_text(aes(label=delegates), vjust=2) +
+  geom_text(aes(label=delegates), vjust=-0.5, color="red") +
   labs(title="Total Delegates Awarded", y="Delegates", x="Candidate", caption="Candidates need 1,991 delegates to secure their nomination on the first ballot at the Democratic National Convention")
 
 ggsave("../out/dem_dels.pdf", units="in", width=10, height=10, dpi=300)
