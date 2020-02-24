@@ -3,6 +3,7 @@
 # 02/20/2020
 
 library(ggplot2)
+library(scales)
 
 # -------------------------------------------------------
 # Polling                                               
@@ -32,7 +33,7 @@ dem_df<-subset(dem_df, start_date > "2019-06-01")
 ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) + 
   geom_line(size=1.25, alpha=0.6) + 
   geom_vline(data=cau_df, aes(xintercept=date), color="black", linetype="longdash") +
-  annotate("label", label=cau_df$events, x=cau_df$date, y=48, fill="yellow") +
+  annotate("label", label=cau_df$events, x=cau_df$date, y=48, fill="#F5D76E") +
   labs(title="Democratic Candidate Polling 2019-2020", y="Percentage Points", x="", caption="Data: www.fivethirtyeight.com") +
   scale_color_manual(values=c("#4C4CFF", "#e6194B", "#ffa500", "#00ff80", "#000000", "#ff00bf", "#008000", "#00ffff")) +
   scale_x_date(labels=date_format("%b"), date_breaks="1 month")
@@ -42,7 +43,7 @@ ggsave("../out/dem_polls1a.pdf", units="in", width=10, height=5, dpi=300)
 ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) + 
   geom_line(size=1.25, alpha=0.6) + 
   geom_vline(data=deb_df, aes(xintercept=date), color="black", linetype="longdash") +
-  annotate("label", label=deb_df$debates, x=deb_df$date, y=48, fill="yellow") +
+  annotate("label", label=deb_df$debates, x=deb_df$date, y=48, fill="#F5D76E") +
   labs(title="Democratic Candidate Polling 2019-2020", y="Percentage Points", x="", caption="Data: www.fivethirtyeight.com") +
   scale_color_manual(values=c("#4C4CFF", "#e6194B", "#ffa500", "#00ff80", "#000000", "#ff00bf", "#008000", "#00ffff")) +
   scale_x_date(labels=date_format("%b"), date_breaks="1 month")
@@ -55,7 +56,7 @@ dem_df<-subset(dem_df, start_date > "2020-02-01")
 ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) + 
   geom_line(size=1.25, alpha=0.6) + 
   geom_vline(data=cau_df, aes(xintercept=date), color="black", linetype="longdash") +
-  annotate("label", label=cau_df$events, x=cau_df$date, y=48, fill="yellow") +
+  annotate("label", label=cau_df$events, x=cau_df$date, y=48, fill="#F5D76E") +
   labs(title="Democratic Candidate Polling", y="Percentage Points", x="", caption="Data: www.fivethirtyeight.com") +
   scale_color_manual(values=c("#4C4CFF", "#e6194B", "#ffa500", "#00ff80", "#000000", "#ff00bf", "#008000", "#00ffff")) #+ 
 
@@ -64,7 +65,7 @@ ggsave("../out/dem_polls2a.pdf", units="in", width=10, height=5, dpi=300)
 ggplot(dem_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) + 
   geom_line(size=1.25, alpha=0.6) + 
   geom_vline(data=subset(deb_df, date > "2020-02-01"), aes(xintercept=date), color="black", linetype="longdash") +
-  annotate("label", label=subset(deb_df, date > "2020-02-01")$debates, x=subset(deb_df, date > "2020-02-01")$date, y=48, fill="yellow") +
+  annotate("label", label=subset(deb_df, date > "2020-02-01")$debates, x=subset(deb_df, date > "2020-02-01")$date, y=48, fill="#F5D76E") +
   labs(title="Democratic Candidate Polling", y="Percentage Points", x="", caption="Data: www.fivethirtyeight.com") +
   scale_color_manual(values=c("#4C4CFF", "#e6194B", "#ffa500", "#00ff80", "#000000", "#ff00bf", "#008000", "#00ffff")) #+ 
 
