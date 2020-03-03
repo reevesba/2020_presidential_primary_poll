@@ -10,11 +10,19 @@ https://docs.google.com/presentation/d/19TnaR4V9ILl_mIBJxsu2V1m88dCHyFUqWiB1DGhU
 
 ## data
 data and links to data 
+
 ## doc
 documentation
+### report
+1. Research if polling data refelct election
+2. Background of Polls(data selected and negelected)
+3. Change of polling data with timeframe and region difference
+
 ## lib
 libraries used
+
 ## out
 output files(graphs and result goes here)
+
 ## src
 source files(code goes here)
