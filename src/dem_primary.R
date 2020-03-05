@@ -12,8 +12,10 @@ library(dplyr)
 # -------------------------------------------------------
 fte_df<-read.csv("https://projects.fivethirtyeight.com/polls-page/president_primary_polls.csv", header=TRUE)
 
-dem_df<-subset(fte_df[grepl("A|B|C", fte_df$fte_grade),], candidate_id=="13257"|candidate_id=="13345"|candidate_id=="13258"|candidate_id=="13310"|
-                                                           candidate_id=="13256"|candidate_id=="13289"|candidate_id=="13327"|candidate_id=="13343")
+# candidate names which is reusable
+candidateNames<-list("Biden","Bloomberg","Buttigieg","Gabbard","Klobuchar","Sanders","Steyer","Warren")
+
+dem_df<-subset(fte_df[grepl("A|B|C", fte_df$fte_grade),], answer %in% candidateNames)
 
 polls<-subset(fte_df[grepl("A|B|C", fte_df$fte_grade),])
 polls<-distinct(polls, pollster, sponsors, fte_grade)
