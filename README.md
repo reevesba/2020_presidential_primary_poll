@@ -1,11 +1,4 @@
-# Report Editting Link
-https://www.overleaf.com/3883779114fcsfkzkznmfk
-
-# Original IEEE "How to Document" (view only)
-https://www.overleaf.com/read/tzjvnpywsgkd
-
-# 2020_presidential_primary_polling
-slides:
+## Slides:
 https://docs.google.com/presentation/d/19TnaR4V9ILl_mIBJxsu2V1m88dCHyFUqWiB1DGhUde8/edit?usp=sharing
 
 ## data
