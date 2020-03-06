@@ -13,10 +13,6 @@ data and links to data
 
 ## doc
 documentation
-### report
-1. Research if polling data refelct election
-2. Background of Polls(data selected and negelected)
-3. Change of polling data with timeframe and region difference
 
 ## lib
 libraries used
