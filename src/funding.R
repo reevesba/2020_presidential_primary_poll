@@ -11,10 +11,6 @@ fund_sanders1 =  read.csv("./dat/funding/sanders_5-31-19.csv", header = TRUE)
 fund_sanders2 =  read.csv("./dat/funding/sanders_8-30-19.csv", header = TRUE)
 fund_warren =  read.csv("./dat/funding/warren.csv", header = TRUE)
 
-# sum up the fund by state
-fund_biden_sum = aggregate(data = fund_biden,
-                           contribution_receipt_amount ~ contributor_state, 
-                           FUN = sum)
 
 fund_buttigieg1_sum = aggregate(data = fund_buttigieg1,
                                 contribution_receipt_amount ~ contributor_state, 
@@ -51,15 +47,15 @@ fund_warren_sum = aggregate(data = fund_warren,
 candidates = c("Biden", "Bloomberg", "Buttigieg", "Gabbard", "Klobuchar","Sanders", "Warren")
 
 # fund from Nevada
-nevada_fund = c(832.7, 0, 178.9, 42.6, 38.1,109.3, 90.1) 
+nevada_fund = c(0.834, 0, 0.179, 0.043, 0.038,0.109, 0.090)
 nevada_list = data.frame(candidate = candidates, fund = nevada_fund)
 nevada_plot = ggplot(data = nevada_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 1) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Nevada", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size = 14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
   panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                 colour = "darkgrey"),
@@ -67,16 +63,30 @@ nevada_plot = ggplot(data = nevada_list, aes(x = candidate, y = fund)) +
 nevada_plot
 ggsave("./out/fund/fund_nevada.eps", nevada_plot)
 ggsave("./out/fund/fund_nevada.jpg", nevada_plot)
+nevada_plot1 = ggplot(data = nevada_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Nevada", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+nevada_plot1
+ggsave("./out/fund/fund_nevada1.eps", nevada_plot1)
+ggsave("./out/fund/fund_nevada1.jpg", nevada_plot1)
 
 # fund from Virginia
-virginia_fund = c(387.5, 1.0, 1724.4, 71.8, 337.0,286.1, 387.5) 
+virginia_fund = c(0.388, 0.001, 1.724, 0.072, 0.337, 0.286, 0.388) 
 virginia_list = data.frame(candidate = candidates, fund = virginia_fund)
 virginia_plot = ggplot(data = virginia_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 2.0) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Virginia", 
-       x = "", y = "Fund Raised ($1000)") +
+       x = "", y = "Fund Raised ($million)") +
   theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
   panel.background = element_rect(fill = 'white',color='darkgrey'),
   panel.grid.major = element_line(size = 0.2, linetype = 'solid',
@@ -85,17 +95,31 @@ virginia_plot = ggplot(data = virginia_list, aes(x = candidate, y = fund)) +
 virginia_plot
 ggsave("./out/fund/fund_virginia.eps", virginia_plot)
 ggsave("./out/fund/fund_virginia.jpg", virginia_plot)
+virginia_plot1 = ggplot(data = virginia_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Virginia", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+virginia_plot1
+ggsave("./out/fund/fund_virginia1.eps", virginia_plot1)
+ggsave("./out/fund/fund_virginia1.jpg", virginia_plot1)
 
 # fund from Vermont
-vermont_fund = c(113.4, 0, 91.0, 16.8, 34.7, 10325.8, 83.9) 
+vermont_fund = c(0.113, 0, 0.091, 0.017, 0.035, 10.326, 0.084) 
 vermont_list = data.frame(candidate = candidates, fund = vermont_fund)
 vermont_plot = ggplot(data = vermont_list, aes(x = candidate, y = fund)) +
-  ylim(0, 11000) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Vermont", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size = 14),
   panel.background = element_rect(fill = 'white',color='darkgrey'),
   panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                   colour = "darkgrey"),
@@ -103,17 +127,31 @@ vermont_plot = ggplot(data = vermont_list, aes(x = candidate, y = fund)) +
 vermont_plot
 ggsave("./out/fund/fund_vermont.eps", vermont_plot)
 ggsave("./out/fund/fund_vermont.jpg", vermont_plot)
+vermont_plot1 = ggplot(data = vermont_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Vermont", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+vermont_plot1
+ggsave("./out/fund/fund_vermont1.eps", vermont_plot1)
+ggsave("./out/fund/fund_vermont1.jpg", vermont_plot1)
 
 # fund from South Carolina
-scarolina_fund = c(418.8, 0, 301.8, 1.5, 63.1, 77.8, 57.7) 
+scarolina_fund = c(0.419, 0, 0.302, 0.002, 0.063, 0.078, 0.058) 
 scarolina_list = data.frame(candidate = candidates, fund = scarolina_fund)
 scarolina_plot = ggplot(data = scarolina_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 0.44) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Sourth Carolina", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size=14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
         panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                         colour = "darkgrey"),
@@ -121,17 +159,31 @@ scarolina_plot = ggplot(data = scarolina_list, aes(x = candidate, y = fund)) +
 scarolina_plot
 ggsave("./out/fund/fund_scarolina.eps", scarolina_plot)
 ggsave("./out/fund/fund_scarolina.jpg", scarolina_plot)
+scarolina_plot1 = ggplot(data = scarolina_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Sourth Carolina", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size=14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+scarolina_plot1
+ggsave("./out/fund/fund_scarolina1.eps", scarolina_plot1)
+ggsave("./out/fund/fund_scarolina1.jpg", scarolina_plot1)
 
 # fund from Texas
-texas_fund = c(1826.8, 1.3, 1853.4, 255.9, 487.3, 544.2, 662.6) 
+texas_fund = c(1.827, 0.001, 1.853, 0.256, 0.487, 0.544, 0.663) 
 texas_list = data.frame(candidate = candidates, fund = texas_fund)
 texas_plot = ggplot(data = texas_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 2.0) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Texas", 
-       x = "", y = "Fund Raised ($1000)") +
-   theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+   theme(axis.text=element_text(size = 12), axis.title=element_text(size = 14),
          panel.background = element_rect(fill = 'white',color='darkgrey'),
          panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                          colour = "darkgrey"),
@@ -139,17 +191,31 @@ texas_plot = ggplot(data = texas_list, aes(x = candidate, y = fund)) +
 texas_plot
 ggsave("./out/fund/fund_texas.eps", texas_plot)
 ggsave("./out/fund/fund_texas.jpg", texas_plot)
+texas_plot1 = ggplot(data = texas_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Texas", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+texas_plot1
+ggsave("./out/fund/fund_texas1.eps", texas_plot1)
+ggsave("./out/fund/fund_texas1.jpg", texas_plot1)
 
 # fund from Georgia
-georgia_fund = c(670.3, 0.6, 920.6, 55.4, 259.8, 198.7, 211.6) 
+georgia_fund = c(0.670, 0.001, 0.921, 0.055, 0.260, 0.199, 0.212) 
 georgia_list = data.frame(candidate = candidates, fund = georgia_fund)
 georgia_plot = ggplot(data = georgia_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", size = 3, vjust = -0.4) +
+  ylim(0, 1.0) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Georgia", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size = 14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
         panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                         colour = "darkgrey"),
@@ -157,17 +223,45 @@ georgia_plot = ggplot(data = georgia_list, aes(x = candidate, y = fund)) +
 georgia_plot
 ggsave("./out/fund/fund_georgia.eps", georgia_plot)
 ggsave("./out/fund/fund_georgia.jpg", georgia_plot)
+georgia_plot1 = ggplot(data = georgia_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Georgia", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+georgia_plot1
+ggsave("./out/fund/fund_georgia1.eps", georgia_plot1)
+ggsave("./out/fund/fund_georgia1.jpg", georgia_plot1)
 
 # fund from Florida
-florida_fund = c(3537.9, 1.1, 2361.6, 190.7, 615.0, 484.5, 474.8) 
+florida_fund = c(3.538, 0.001, 2.362, 0.191, 0.615, 0.485, 0.475) 
 florida_list = data.frame(candidate = candidates, fund = florida_fund)
 florida_plot = ggplot(data = florida_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", vjust = -0.4) +
+  ylim(0, 4.0) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Florida", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+florida_plot
+ggsave("./out/fund/fund_florida.eps", florida_plot)
+ggsave("./out/fund/fund_florida.jpg", florida_plot)
+florida_plot1 = ggplot(data = florida_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Florida", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
         panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                         colour = "darkgrey"),
@@ -178,15 +272,15 @@ ggsave("./out/fund/fund_florida.jpg", florida_plot)
 
 
 # fund from Iowa
-iowa_fund = c(148.9, 0, 246.9, 22.1, 89.9, 96.8, 63.9) 
+iowa_fund = c(0.149, 0, 0.247, 0.022, 0.090, 0.097, 0.064) 
 iowa_list = data.frame(candidate = candidates, fund = iowa_fund)
-iowa_plot = ggplot(data = iowa_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", vjust = -0.4) +
+iowa_plot = ggplot(data = iowa_list, aes(x = candidate, y = iowa_fund)) +
+  ylim(0, 0.27) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from Iowa", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size=12), axis.title=element_text(size = 14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
         panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                         colour = "darkgrey"),
@@ -195,16 +289,33 @@ iowa_plot
 ggsave("./out/fund/fund_iowa.eps", iowa_plot)
 ggsave("./out/fund/fund_iowa.jpg", iowa_plot)
 
+iowa_plot1 = ggplot(data = iowa_list, aes(x = candidate, y = iowa_fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Iowa", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+iowa_plot1
+ggsave("./out/fund/fund_iowa1.eps", iowa_plot1)
+ggsave("./out/fund/fund_iowa1.jpg", iowa_plot1)
+
+
+
 # fund from New Hampshire
-newHampshire_fund = c(183.5, 0, 323.6, 45.8, 106.9, 110.7, 106.0) 
-newHampshire_list = data.frame(candidate = candidates, fund = newHampshirefund)
-newHampshire_plot = ggplot(data = iowa_list, aes(x = candidate, y = fund)) +
-  ylim(0, 3600) +
-  geom_bar(stat="identity", width = 0.6, fill = "#E69F00",color = "#D55E00") +
-  geom_text(aes(label = fund), color = "#D55E00", vjust = -0.4) +
+newHampshire_fund = c(0.184, 0, 0.324, 0.046, 0.107, 0.111, 0.106) 
+newHampshire_list = data.frame(candidate = candidates, fund = newHampshire_fund)
+newHampshire_plot = ggplot(data = newHampshire_list, aes(x = candidate, y = fund)) +
+  ylim(0, 0.35) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
   labs(title = "Candidate's Funding from New Hampshire", 
-       x = "", y = "Fund Raised ($1000)") +
-  theme(axis.text=element_text(size=12), axis.title=element_text(size=14),
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size=14),
         panel.background = element_rect(fill = 'white',color='darkgrey'),
         panel.grid.major = element_line(size = 0.2, linetype = 'solid',
                                         colour = "darkgrey"),
@@ -212,10 +323,53 @@ newHampshire_plot = ggplot(data = iowa_list, aes(x = candidate, y = fund)) +
 newHampshire_plot
 ggsave("./out/fund/fund_newHampshire.eps", newHampshire_plot)
 ggsave("./out/fund/fund_newHampshire.jpg", newHampshire_plot)
+newHampshire_plot1 = ggplot(data = newHampshire_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from New Hampshire", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+newHampshire_plot1
+ggsave("./out/fund/fund_newHampshire1.eps", newHampshire_plot1)
+ggsave("./out/fund/fund_newHampshire1.jpg", newHampshire_plot1)
 
 
-
-
+# fund from Alabama
+alabama_fund = c(0.164, 0, 0.200, 0.013, 0.030, 0.047, 0.047) 
+alabama_list = data.frame(candidate = candidates, fund = alabama_fund)
+alabama_plot = ggplot(data = alabama_list, aes(x = candidate, y = fund)) +
+  ylim(0, 0.25) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 6, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Alabama", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 12), axis.title=element_text(size=14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+alabama_plot
+ggsave("./out/fund/fund_alabama.eps", alabama_plot)
+ggsave("./out/fund/fund_alabama.jpg", alabama_plot)
+alabama_plot1 = ggplot(data = alabama_list, aes(x = candidate, y = fund)) +
+  ylim(0, 11) +
+  geom_bar(stat="identity", width = 0.7, fill = "orange1",color = "#D55E00") +
+  geom_text(aes(label = fund), color = "#D55E00", size = 8, vjust = -0.4) +
+  labs(title = "Candidate's Funding from Alabama", 
+       x = "", y = "Fund Raised ($million)") +
+  theme(axis.text=element_text(size = 14), axis.title=element_text(size = 14),
+        panel.background = element_rect(fill = 'white',color='darkgrey'),
+        panel.grid.major = element_line(size = 0.2, linetype = 'solid',
+                                        colour = "darkgrey"),
+        panel.grid.major.x = element_blank())
+alabama_plot1
+ggsave("./out/fund/fund_alabama1.eps", alabama_plot1)
+ggsave("./out/fund/fund_alabama1.jpg", alabama_plot1)
 
 
 
