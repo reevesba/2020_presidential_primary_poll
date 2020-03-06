@@ -122,10 +122,6 @@ ggplot(temp_df, aes(y=pct, x=start_date, group=Candidate, color=Candidate)) +
 ggsave("../out/polls/SC-ST.pdf", units="in", width=10, height=5, dpi=300)
 
 # -------------------------------------------------------
-# Fundraising                                              
-# -------------------------------------------------------
-
-# -------------------------------------------------------
 # Advertising                                               
 # -------------------------------------------------------
 # NOTE
