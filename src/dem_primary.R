@@ -27,7 +27,7 @@ dem_df$start_date<-as.Date(as.character(dem_df$start_date), "%m/%d/%y")
 dem_df<-setNames(aggregate(dem_df$pct, by=list(dem_df$candidate_name, dem_df$start_date), FUN=mean), c("candidate_name", "start_date", "pct"))
 
 # caucuses/primaries
-cau_df<-data.frame(date=as.Date(c("2020-02-03", "2020-02-11", "2020-02-22", "2020-02-29")), events=c("IA", "NH", "NV", "SC"))
+cau_df<-data.frame(date=as.Date(c("2020-02-03", "2020-02-11", "2020-02-22", "2020-02-29", "2020-03-03")), events=c("IA", "NH", "NV", "SC", "ST"))
 
 # debates
 deb_df<-data.frame(date=as.Date(c("2020-01-14", "2020-02-07", "2020-02-19", "2020-02-26")), debates=c(7:10))
