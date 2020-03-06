@@ -80,6 +80,8 @@ sanders_amount = merge(x=sanders_state_fund, y=sanders_state_poll_count,
 sanders_amount = sanders_amount[,c("contribution_receipt_amount","Count")]
 candidate_name = rep("Sanders",length(sanders_amount))
 sanders_amount_wn = cbind(sanders_amount, candidate_name)
+cor.test(anders_amount$contribution_receipt_amount, sanders_amount$Count, alternative = "less", method = "pearson")
+
 
 # biden
 biden_state = fund_biden_use[,c("contribution_receipt_amount","contributor_state")]
