@@ -3,6 +3,9 @@ The  effectiveness  of  opinion  polls  came  underscrutiny after the U.S. presi
 
 This project is done with R and ggplot.
 
+Click below for a detailed report.
+https://github.com/safrannn/2020_presidential_primary_poll/blob/master/doc/report.pdf
+
 
 ## data
 data and links to data 
