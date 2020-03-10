@@ -1,5 +1,5 @@
 # Abstract:
-The  effectiveness  of  opinion  polls  came  underscrutiny after the U.S. presidential election in 2016. Most pollsshowed Hillary Clinton as winning, but Donald Trump woninstead. This report takes real-time data to determine if opinionpolls, fundraising data, and advertising expenses truly predeter-mines how people will vote
+The  effectiveness of opinion polls came under scrutiny after the U.S. presidential election in 2016. Most polls showed Hillary Clinton as winning, but Donald Trump won instead. This report takes real-time data to determine if opinion polls, fundraising data, and advertising expenses truly predicts how people will vote.
 
 This project is done with R and ggplot.
 
